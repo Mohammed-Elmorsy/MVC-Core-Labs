@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+</head>
+<body>
+    @Html.ActionLink("Add Mock Student", "create", "student", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Add DB Student", "create2", "student", null, new { @class = "btn btn-primary" })
+
+    @*<a href="/student/create" class="btn btn-primary"> Add Student</a>*@
+
+
+    <table class="table-bordered  table table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody class="table-success">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+
+
+
+                    @*<td> <a href="/student/details/@item.Id"><input class="btn btn-primary" type="submit" value="Details" /></a> </td>*@
+
+                    <td>@Html.ActionLink("Edit", "edit", "student", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+
+                    @*<td> <a href="/student/edit/@item.Id"><input class="btn btn-primary" type="submit" value="Edit" /></a> </td>*@
+
+                    <td>@Html.ActionLink("Delete", "delete", "student", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+
+                    <td>@Html.ActionLink("Details", "details", "student", new { id = item.Id }, new { @class = "btn btn-primary" })</td>
+                    @*<td> <a href="/student/delete/@item.Id" +><input class="btn btn-primary" type="submit" onclick="return confirm('are you sure')" value="Delete" /></a></td>*@
+
+
+
+
+                </tr>
+
+
+
+            }
+
+        </tbody>
+    </table>
+
+</body>
+</html>

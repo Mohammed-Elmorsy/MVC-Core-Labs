@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <h3>Tag Helper</h3>
+        <a asp-action="Index" asp-controller="Student" class="btn btn-primary">Student </a>
+        <h3>HTML Helper</h3>
+        @Html.ActionLink("Students", "index", "Student", null, new { @class = "btn btn-danger" })
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
